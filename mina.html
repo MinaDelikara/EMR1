@@ -1,0 +1,548 @@
+<2!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Personal EMR</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#eef6fb;
+    color:#333;
+}
+
+header{
+    background:#006699;
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+select{
+    padding:8px;
+    border-radius:6px;
+}
+
+.container{
+    max-width:900px;
+    margin:30px auto;
+    padding:15px;
+}
+
+.card{
+    background:white;
+    margin-bottom:20px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h2{
+    color:#006699;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.label{
+    font-weight:bold;
+    width:35%;
+}
+
+footer{
+    background:#006699;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+@media(max-width:600px){
+
+header{
+    flex-direction:column;
+    gap:15px;
+}
+
+.label{
+    width:40%;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1 id="title">
+Personal Electronic Medical Record
+</h1>
+
+
+<select onchange="changeLanguage(this.value)">
+
+<option value="en">English</option>
+<option value="zh">中文</option>
+<option value="tr">Türkçe</option>
+<option value="ko">한국어</option>
+<option value="ja">日本語</option>
+<option value="es">Español</option>
+
+</select>
+
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+<h2 id="personalTitle">
+Personal Information
+</h2>
+
+
+<table>
+
+<tr>
+<td class="label" id="nameLabel">Name</td>
+<td>Mina Delikara</td>
+</tr>
+
+
+<tr>
+<td class="label" id="dobLabel">
+Date of Birth
+</td>
+
+<td>
+07/04/2009
+</td>
+</tr>
+
+
+<tr>
+<td class="label" id="sexLabel">
+Sex
+</td>
+
+<td>
+Female
+</td>
+</tr>
+
+
+
+<tr>
+<td class="label" id="bloodLabel">
+Blood Type
+</td>
+
+<td>
+AB+
+</td>
+</tr>
+
+
+<tr>
+<td class="label" id="allergyLabel">
+Allergy
+</td>
+
+<td>
+None
+</td>
+</tr>
+
+
+</table>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2 id="medicalTitle">
+Medical Summary
+</h2>
+
+
+<table>
+
+
+<tr>
+
+<td class="label" id="statusLabel">
+Current Status
+</td>
+
+<td id="status">
+Healthy
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="label" id="conditionLabel">
+Chronic Conditions
+</td>
+
+<td id="condition">
+None
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="label" id="medicationLabel">
+Current Medication
+</td>
+
+<td id="medication">
+Zoretanin
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="label" id="emergencyLabel">
+Emergency Contact
+</td>
+
+
+<td>
+
++90 536 258 9002
+<br>
++90 533 515 6205
+
+</td>
+
+
+</tr>
+
+
+
+</table>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2 id="healthTitle">
+Health Records
+</h2>
+
+
+<ul>
+
+<li id="lab">
+Laboratory Results: No records available
+</li>
+
+<li id="vaccine">
+Vaccination History: No records available
+</li>
+
+<li id="visit">
+Clinical Visits: No records available
+</li>
+
+<li id="document">
+Medical Documents: No records available
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 Personal EMR System
+
+</footer>
+
+
+
+
+
+<script>
+
+
+const translations={
+
+
+en:{
+
+title:"Personal Electronic Medical Record",
+personal:"Personal Information",
+medical:"Medical Summary",
+health:"Health Records",
+
+name:"Name",
+dob:"Date of Birth",
+sex:"Sex",
+blood:"Blood Type",
+allergy:"Allergy",
+
+status:"Healthy",
+condition:"None",
+medication:"Zoretanin",
+
+statusLabel:"Current Status",
+conditionLabel:"Chronic Conditions",
+medicationLabel:"Current Medication",
+
+emergency:"Emergency Contact"
+
+
+},
+
+
+
+zh:{
+
+title:"個人電子病歷",
+personal:"個人資料",
+medical:"醫療摘要",
+health:"健康紀錄",
+
+name:"姓名",
+dob:"出生日期",
+sex:"性別",
+blood:"血型",
+allergy:"過敏",
+
+status:"健康",
+condition:"無",
+medication:"Zoretanin",
+
+statusLabel:"目前狀態",
+conditionLabel:"慢性疾病",
+medicationLabel:"目前用藥",
+
+emergency:"緊急聯絡人"
+
+},
+
+
+
+tr:{
+
+title:"Kişisel Elektronik Sağlık Kaydı",
+personal:"Kişisel Bilgiler",
+medical:"Tıbbi Özet",
+health:"Sağlık Kayıtları",
+
+name:"Ad",
+dob:"Doğum Tarihi",
+sex:"Cinsiyet",
+blood:"Kan Grubu",
+allergy:"Alerji",
+
+status:"Sağlıklı",
+condition:"Yok",
+medication:"Zoretanin",
+
+statusLabel:"Mevcut Durum",
+conditionLabel:"Kronik Hastalık",
+medicationLabel:"Mevcut İlaç",
+
+emergency:"Acil İletişim"
+
+},
+
+
+
+ko:{
+
+title:"개인 전자의무기록",
+personal:"개인 정보",
+medical:"의료 요약",
+health:"건강 기록",
+
+name:"이름",
+dob:"생년월일",
+sex:"성별",
+blood:"혈액형",
+allergy:"알레르기",
+
+status:"건강함",
+condition:"없음",
+medication:"Zoretanin",
+
+statusLabel:"현재 상태",
+conditionLabel:"만성 질환",
+medicationLabel:"현재 약물",
+
+emergency:"비상 연락처"
+
+},
+
+
+
+ja:{
+
+title:"個人電子カルテ",
+personal:"個人情報",
+medical:"医療概要",
+health:"健康記録",
+
+name:"名前",
+dob:"生年月日",
+sex:"性別",
+blood:"血液型",
+allergy:"アレルギー",
+
+status:"健康",
+condition:"なし",
+medication:"Zoretanin",
+
+statusLabel:"現在の状態",
+conditionLabel:"慢性疾患",
+medicationLabel:"現在の薬",
+
+emergency:"緊急連絡先"
+
+},
+
+
+
+es:{
+
+title:"Historia Clínica Electrónica Personal",
+personal:"Información Personal",
+medical:"Resumen Médico",
+health:"Registros de Salud",
+
+name:"Nombre",
+dob:"Fecha de Nacimiento",
+sex:"Sexo",
+blood:"Tipo de Sangre",
+allergy:"Alergia",
+
+status:"Saludable",
+condition:"Ninguna",
+medication:"Zoretanin",
+
+statusLabel:"Estado Actual",
+conditionLabel:"Enfermedades Crónicas",
+medicationLabel:"Medicamento Actual",
+
+emergency:"Contacto de Emergencia"
+
+}
+
+
+};
+
+
+
+
+
+function changeLanguage(lang){
+
+
+let t=translations[lang];
+
+
+title.innerHTML=t.title;
+
+personalTitle.innerHTML=t.personal;
+
+medicalTitle.innerHTML=t.medical;
+
+healthTitle.innerHTML=t.health;
+
+
+
+nameLabel.innerHTML=t.name;
+
+dobLabel.innerHTML=t.dob;
+
+sexLabel.innerHTML=t.sex;
+
+bloodLabel.innerHTML=t.blood;
+
+allergyLabel.innerHTML=t.allergy;
+
+
+
+statusLabel.innerHTML=t.statusLabel;
+
+conditionLabel.innerHTML=t.conditionLabel;
+
+medicationLabel.innerHTML=t.medicationLabel;
+
+
+
+status.innerHTML=t.status;
+
+condition.innerHTML=t.condition;
+
+medication.innerHTML=t.medication;
+
+
+
+emergencyLabel.innerHTML=t.emergency;
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
